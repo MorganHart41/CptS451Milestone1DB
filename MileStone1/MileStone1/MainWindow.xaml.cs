@@ -101,7 +101,8 @@ namespace MileStone1
         private void StateList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             businessGrid.Items.Clear();
-
+            cityList.Items.Clear();
+            addCities();
             if (stateList.SelectedIndex > -1)
             {
                 using (var comm = new NpgsqlConnection(buildCommString()))
@@ -122,8 +123,6 @@ namespace MileStone1
                     comm.Close();
                 }
             }
-            cityList.Items.Clear();
-            addCities();
         }
 
         private void CityList_SelectionChanged(object sender, SelectionChangedEventArgs e)
